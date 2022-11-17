@@ -15,6 +15,7 @@ function App() {
 
   const [weather, setWeather] = useState([]);
   const API_KEY = '794f057ed2516163c53a51b07b87b66c';
+  // const [date, setDate] = useState([]);
 //   const [value, setValue] = useState('');
 
 //   function chengeSelect(e) {
@@ -25,6 +26,8 @@ function App() {
   
 
   async function fetchData(e) {
+
+    // const date = new Date();
     
     
     
@@ -45,8 +48,38 @@ function App() {
         humidity: apiData.main.humidity,
         speed: apiData.wind.speed,
         icon: apiData.weather[0].icon,
-        error:""
+        error:"",
+        date: new Date(apiData.dt * 1000).toLocaleDateString("default"),
+        time: new Date(apiData.dt * 1000).toLocaleTimeString("default")
+
+        
+        
       })
+
+      // setDate ({
+
+      //   dateA: new Date()
+        
+        // const hours = date.getHours()
+        // let timeOfDay
+        // const styles = {
+        // fontSize: 30
+        // }
+        // if (hours < 12) {
+        // timeOfDay = "morning"
+        // styles.color = "#04756F"
+        // } else if (hours >= 12 && hours < 17) {
+        // timeOfDay = "afternoon"
+        // styles.color = "#2E0927"
+        // } else {
+        // timeOfDay = "night"
+        // styles.color = "#D90000"
+        // }
+      // })
+      // console.log(date)
+      
+
+      // let date = new Date()
       
 
     }
@@ -74,6 +107,8 @@ function App() {
           <Weather weather={weather}/>): (
           <div>X</div>
           )}
+          {/* {console.log('-----')}
+          {console.log(date)} */}
         {console.log(weather.data)}
       </div>
       </div>
